@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1=pageHeader.title
+    small &nbsp;#{pageHeader.strapline}
+  p Welcome to #{title}, please Login or click Register to create an account
+
+  //- Login Form
+  form.px-4.py-3
+    .form-group
+      label(for='exampleDropdownFormEmail1') Email address
+      input#exampleDropdownFormEmail1.form-control(type='email' placeholder='email@example.com')
+    .form-group
+      label(for='exampleDropdownFormPassword1') Password
+      input#exampleDropdownFormPassword1.form-control(type='password' placeholder='Password')
+    .form-check
+      input#dropdownCheck.form-check-input(type='checkbox')
+      label.form-check-label(for='dropdownCheck') Remember me
+    button.btn.btn-primary(type='submit') Sign in
+
+  .dropdown-divider
+  a.dropdown-item(href='/register') New around here? Click here or Register on the nav bar to sign up 
+

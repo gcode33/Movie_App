@@ -1,0 +1,117 @@
+@import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700");
+
+body {
+  font-family: "Cabin", Arial, sans-serif;
+  color: #ffffff;
+  background-color: #1b1b1b; /* Dark background for movie theme */
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lobster', cursive;
+  color: #e0e0e0; /* Softer white for headings */
+}
+
+.navbar {
+  background-color: #2c3e50; /* Darker navbar */
+  border-color: #1b2733;
+}
+
+.navbar-brand {
+  font-family: 'Lobster', cursive;
+  font-size: 1.8rem;
+  color: #f39c12 !important; /* Golden color for brand */
+}
+
+.banner {
+  margin-top: 4em;
+  border-bottom: 2px solid #f39c12; /* Golden border for banner */
+  margin-bottom: 2em;
+  padding-bottom: 0.5em;
+  background-color: #2c3e50; /* Dark banner background */
+}
+
+h1 small {
+  color: #f39c12; /* Golden subtitle color */
+}
+
+.card {
+  background-color: #34495e; /* Darker movie card */
+  border: none;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for a cinematic feel */
+}
+
+.card-primary {
+  border-color: #e67e22;
+}
+
+.review-header {
+  background-color: #e74c3c; /* Highlight review header */
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.review {
+  margin-right: -20px;
+  margin-left: -20px;
+  margin-bottom: 1em;
+}
+
+.badge-default, .btn-primary {
+  background-color: #f39c12; /* Golden color for buttons and badges */
+  border-color: #e67e22;
+}
+
+h4 a, h4 a:hover {
+  color: #f39c12; /* Golden text for movie titles */
+}
+
+h4 small {
+  font-size: 60%;
+  line-height: 200%;
+  color: #bdc3c7; /* Soft grey for small text */
+}
+
+.address {
+  margin-bottom: 0.5rem;
+  color: #ecf0f1; /* Light grey for movie info */
+}
+
+.facilities span.badge {
+  margin-right: 2px;
+  background-color: #2c3e50; /* Dark badge background */
+  color: #f39c12; /* Golden text for badges */
+}
+
+legend {
+  font-family: 'Lobster', cursive;
+  color: #f39c12; /* Golden color for legends */
+}
+
+/* Button Styling */
+button.btn-primary {
+  background-color: #e74c3c; /* Red button to grab attention */
+  border-color: #c0392b;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button.btn-primary:hover {
+  background-color: #c0392b; /* Darker red on hover */
+  border-color: #96281b;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #2c3e50;
+  color: #bdc3c7;
+  padding: 1em 0;
+  text-align: center;
+}
+
+footer small {
+  color: #7f8c8d;
+}
