@@ -10,7 +10,7 @@ const usersRouter = require('./app_server/routes/users');
 require('./app_server/models/db');
 
 // Import the location controller
-const locationController = require('./app_server/controllers/locations');
+const locationController = require('./app_server/controllers/movies');
 
 var app = express();
 
