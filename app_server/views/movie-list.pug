@@ -8,21 +8,21 @@ block content
   
   .row
     .col-12.col-md-8
-      each location in locations
+      each movie in movies
         .card
           .card-block
             h4
-              a(href="/location")= location.movie
+              a(href="/location")= movie.movie
             small &nbsp;
               i.fa.fa-star
               i.fa.fa-star
               i.fa.fa-star
               i.fa.fa-star-o
               i.fa.fa-star-o
-            span.badge.badge-pill.badge-default.float-right= location.year
-            p.director= location.director
+            span.badge.badge-pill.badge-default.float-right= movie.year
+            p.director= movie.director
             .Genres
-              span.badge.badge-warning= location.genre.join(', ')
+              span.badge.badge-warning= movie.genre.join(', ')
 
     .col-12.col-md-4
       p.lead Looking for your next movie to watch? MovieRev helps you discover films that you might enjoy. Perhaps with a thrilling plot, dramatic twists, or simply a good laugh? Let Movie Finder assist you in finding the film you're looking for.

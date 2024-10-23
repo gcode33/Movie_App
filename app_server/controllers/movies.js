@@ -11,7 +11,7 @@ const homelist = function(req, res) {
 };
 
 const movieInfo = function(req, res) {
-    const locations = [
+    const movies = [
         { 
             movie: 'The Shawshank Redemption',
             director: 'Directed by Frank Darabont',
@@ -37,7 +37,7 @@ const movieInfo = function(req, res) {
 
     res.render('movie-list', { 
         title: 'Movie List', 
-        locations 
+        movies 
     });
 }; 
 
