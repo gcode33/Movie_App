@@ -41,7 +41,6 @@ const movieInfo = function(req, res) {
     });
 }; 
 
-    /* GET 'Add review' page */
     const RegisterInfo = function(req, res){
     res.render('register', { title: 'Sign up for our website' });
     };

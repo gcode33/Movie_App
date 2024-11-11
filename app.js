@@ -5,12 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 // Import your route files
-const indexRouter = require('./app_server/routes/index');
-const usersRouter = require('./app_server/routes/users');
-require('./app_server/models/db');
-
+const apiRoutes = require('./app_api/routes/index');
+require('./app_api/models/movie.model');  // Ensure this path is correct
 // Import the location controller
-const locationController = require('./app_server/controllers/movies');
+const locationController = require('./app_api/controllers/movies');
 
 var app = express();
 
@@ -25,9 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up routes
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
+app.use('/api', apiRoutes);
 // Add the routes for movies
 app.get('/movies', locationController.movieInfo); // Movie List
 app.get('/register', locationController.RegisterInfo); // Add Review page
