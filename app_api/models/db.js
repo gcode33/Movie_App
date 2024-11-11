@@ -13,4 +13,4 @@ mongoose.connect(
  catch (e) {
   console.log("could not connect");
 }
-require('./models/movie');
+require('./movies');
