@@ -2,17 +2,28 @@ const express = require('express');
 const router = express.Router();
 
 const ctrlLocations = require('../controllers/movies'); 
+const ctrlHome = require('../controllers/homeList'); 
+const ctrlRegister = require('../controllers/Register'); 
+
 
 // Home page
 router
-  .get(('/'),ctrlLocations.homelist);
+  .route('/')
+  .get(ctrlHome.homelist); // Use the callback function directly
 
 // Movies (read-only)
-router
-  .get(('/movies'),ctrlLocations.movieInfo);        // List all movies
-   // Get details of a specific movie
+router.route('/movies')
+  .get(ctrlLocations.getAllMovies);  // Controller method to fetch all movies
+
+// Route to get a specific movie by ID
+router.route('/movies/:movieid')
+  .get(ctrlLocations.MovieReadOne); 
+// Use the callback function directly
 
 // Register
 router
-   .get(('/register'),ctrlLocations.RegisterInfo)       // Render the register page
+  .route('/register')
+  .get(ctrlRegister.RegisterInfo); // Use the callback function directly
+
 module.exports = router;
+

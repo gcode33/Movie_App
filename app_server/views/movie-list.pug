@@ -1,28 +1,41 @@
-extends layout 
+extends layout
 
 block content
-  .row.banner
-    .col-12
-      h1 Movie Finder
-      small &nbsp; Find your next favorite movie!
-  
-  .row
-    .col-12.col-md-8
+  // If movies are passed, display the list of movies
+  if movies
+    .row
+      .col-12
+        h1 Movie Finder
+        p Find your next favorite movie!
+
+    .row
       each movie in movies
-        .card
-          .card-block
-            h4
-              a(href="/movie")= movie.movie
-            small &nbsp;
-              i.fa.fa-star
-              i.fa.fa-star
-              i.fa.fa-star
-              i.fa.fa-star-o
-              i.fa.fa-star-o
-            span.badge.badge-pill.badge-default.float-right= movie.year
-            p.director= movie.director
-            .Genres
-              span.badge.badge-warning= movie.genre.join(', ')
+        .col-md-4
+          .card
+            .card-block
+              h4
+                a(href=`/movies/${movie._id}`)= movie.title  // Link to movie details page
+              p.director= movie.director
+              p.releaseDate= movie.releaseDate
+              p.rating= movie.rating
+              p.genres= movie.genres.join(', ')  // Show genres as a comma-separated string
+              p.description= movie.description.length > 100 ? movie.description.slice(0, 100) + '...' : movie.description
+
+  // If a single movie is passed, display its details
+  else if movie
+    .row
+      .col-12
+        h1= movie.title
+        p.director= "Director: " + movie.director
+        p.releaseDate= "Release Date: " + movie.releaseDate
+        p.rating= "Rating: " + movie.rating
+        p.genres
+          strong Genres: 
+          span= movie.genres.join(', ')  // Show genres as a comma-separated string
+        p.description
+          strong Description: 
+          p= movie.description
+
 
     .col-12.col-md-4
       p.lead Looking for your next movie to watch? MovieRev helps you discover films that you might enjoy. Perhaps with a thrilling plot, dramatic twists, or simply a good laugh? Let Movie Finder assist you in finding the film you're looking for.
