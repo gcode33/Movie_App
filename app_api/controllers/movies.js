@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Movies = mongoose.model('locations'); // Assuming the 'movies' model is set up
+const Movies = mongoose.model('Movies'); // Assuming the 'movies' model is set up
 
 // Controller to fetch all movies
 const getAllMovies = async function(req, res) {

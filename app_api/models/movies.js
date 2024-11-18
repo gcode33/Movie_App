@@ -26,5 +26,5 @@ const movieSchema = new mongoose.Schema({
   }
 }, { collection: 'locations' });  // Specify the collection name 'location'
 
-module.exports = mongoose.model('locations', movieSchema);
+module.exports = mongoose.model('Movies', movieSchema);
 
