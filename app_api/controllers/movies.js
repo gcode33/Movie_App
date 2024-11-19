@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Movies = mongoose.model('Movies'); // Assuming the 'movies' model is set up
 
 // Controller to fetch all movies
-const getAllMovies = async function(req, res) {
+/*const getAllMovies = async function(req, res) {
     try {
         const movies = await Movies.find();  // Fetch all movies from the database
 
@@ -19,7 +19,7 @@ const getAllMovies = async function(req, res) {
         console.error('Error fetching movies:', error);
         res.status(500).send('An error occurred while fetching the movie list.');
     }
-};
+};*/
 
 
 // Controller to fetch a specific movie by ID
