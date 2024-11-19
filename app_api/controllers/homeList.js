@@ -11,6 +11,4 @@ const homelist = function(req, res) {
     });
 };
 
-module.exports = {
-    homelist
-};
+module.exports = {homelist};

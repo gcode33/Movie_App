@@ -1,20 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const ctrlLocations = require('../controllers/movies'); 
-const ctrlHome = require('../controllers/homeList'); 
-const ctrlRegister = require('../controllers/Register'); 
+const ctrlLocations = require('../../app_api/controllers/movies'); 
+const ctrlHome = require('../../app_api/controllers/homeList'); 
+const ctrlRegister = require('../../app_api/controllers/Register'); 
 
 
 // Home page
 router
   .route('/')
   .get(ctrlHome.homelist); // Use the callback function directly
-
-// Movies (read-only)
-/*router
-  .route('/movies')
-  .get(ctrlLocations.getAllMovies); */ // Controller method to fetch all movies
 
 // Route to get a specific movie by ID
 router
