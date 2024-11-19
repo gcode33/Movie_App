@@ -12,9 +12,9 @@ router
   .get(ctrlHome.homelist); // Use the callback function directly
 
 // Movies (read-only)
-router
+/*router
   .route('/movies')
-  .get(ctrlLocations.getAllMovies);  // Controller method to fetch all movies
+  .get(ctrlLocations.getAllMovies); */ // Controller method to fetch all movies
 
 // Route to get a specific movie by ID
 router
