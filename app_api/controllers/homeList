@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Movies = mongoose.model('locations');  // Ensure the model is registered correctly
+const Movies = mongoose.model('Movies');  // Ensure the model is registered correctly
 
 const homelist = function(req, res) {
     res.render('index', { 
