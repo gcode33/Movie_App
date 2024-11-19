@@ -33,7 +33,8 @@ const MovieReadOne = async function(req, res) {
 	});
 };
 
-module.exports = { getAllMovies, MovieReadOne };
+module.exports = {MovieReadOne}; //fixing the error here 
+
 
 
 
