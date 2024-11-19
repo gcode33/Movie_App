@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up routes
 // Add the routes for movies
-app.get('/movies', locationController.getAllMovies); // Movie List
+//app.get('/movies', locationController.getAllMovies); // Movie List
 app.get('/movies', locationController.MovieReadOne); // Movie List
 
 //app.get('/register', locationController.RegisterInfo); // Add Review page
