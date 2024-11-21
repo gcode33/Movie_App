@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const ctrlLocations = require('../../app_api/controllers/movies'); 
-const ctrlHome = require('../../app_api/controllers/homeList'); 
-const ctrlRegister = require('../../app_api/controllers/Register'); 
+const ctrlLocations = require('../../app_api/controllers/movies');  
 
 
 // Home page
-router
+router.get('/', ctrlLocations.homelist);
+/*router
   .route('/')
-  .get(ctrlHome.homelist); // Use the callback function directly
+  .get(ctrlHome.homelist); */// Use the callback function directly
+router.get('/movies', ctrlLocations.movieInfo);
 
 // Route to get a specific movie by ID
 router
@@ -18,9 +18,10 @@ router
 // Use the callback function directly
 
 // Register
-router
-  .route('/register')
-  .get(ctrlRegister.RegisterInfo); // Use the callback function directly
+/*router
+  .route('/Register')
+  .get(ctrlRegister.RegisterInfo);*/ // Use the callback function directly
+router.get('/register', ctrlLocations.RegisterInfo);
 
 module.exports = router;
 
