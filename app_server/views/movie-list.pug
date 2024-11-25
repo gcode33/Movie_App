@@ -1,30 +1,33 @@
-extends layout 
+extends layout
 
 block content
   .row.banner
     .col-12
       h1 Movie Finder
       small &nbsp; Find your next favorite movie!
-  
+
   .row
     .col-12.col-md-8
-      each movie in movies
-        .card.mb-4
-          .card-block.p-3
-            h4
-              a(href="/movie")= movie.movie
-            p.director= movie.director
-            .rating.mb-2
-              - for (let i = 0; i < 5; i++)
-                if i < movie.rating
-                  i.fa.fa-star
-                else
-                  i.fa.fa-star-o
-            span.badge.badge-pill.badge-default.float-right= movie.year
-            .genres.mb-2
-              each genre in movie.genre
-                span.badge.badge-warning.mr-1= genre
-            p.description= movie.description
+      if movies && movies.length
+        each movie in movies
+          .card.mb-4
+            .card-block.p-3
+              h4
+                a(href="/movie")= movie.movie
+              p.director= movie.director
+              .rating.mb-2
+                - for (let i = 0; i < 5; i++)
+                  if i < movie.rating
+                    i.fa.fa-star
+                  else
+                    i.fa.fa-star-o
+              span.badge.badge-pill.badge-default.float-right= movie.year
+              .genres.mb-2
+                each genre in movie.genre
+                  span.badge.badge-warning.mr-1= genre
+              p.description= movie.description
+      else
+        p No movies available to display.
 
     .col-12.col-md-4
       p.lead Looking for your next movie to watch? MovieRev helps you discover films that you might enjoy. Perhaps with a thrilling plot, dramatic twists, or simply a good laugh? Let Movie Finder assist you in finding the film you're looking for.

@@ -14,6 +14,8 @@ const apiRoutes = require('./app_api/routes/index');
 // Import the location controller
 const locationController = require('./app_api/controllers/movies');
 
+
+
 var app = express();
 
 // view engine setup
@@ -31,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up routes
 // Add the routes for movies
-app.get('/', locationController.homelist); // Movie List
+app.get('/', locationController.homelist); 
 app.get('/register', locationController.RegisterInfo);
 app.get('/movies', locationController.movieInfo); // Movie List
 //app.get('/movies/:movieid', locationController.MovieReadOne); // Movie List
