@@ -12,9 +12,17 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // PUBLIC METHODS
-
-/* GET 'home' page (Login Page) */
 const homelist = function(req, res) {
+    res.render('index', { 
+        title: 'MovieRev!', 
+        pageHeader: {
+            title: 'MovieRev', 
+            strapline: 'Find your next favorite movie!!'
+        }
+    });
+};
+/* GET 'home' page (Login Page) */
+const dataPage = function(req, res) {
     const path = '/api/movies'; 
     const requestOptions = { 
         url: apiOptions.server + path, 
@@ -41,36 +49,40 @@ const homelist = function(req, res) {
 };
 
 /* GET 'Movie Info' page */
-const movieInfo = function(req, res) {
+const movieInfo = function (req, res) {
     const movies = [
-        { 
-            movie: 'The Shawshank Redemption',
+        {
+            title: 'The Shawshank Redemption',
             director: 'Directed by Frank Darabont',
             rating: 5,
-            genre: ['Drama', 'Prison'],
-            year: '1994'
+            genres: ['Drama', 'Prison'],
+            releaseDate: '1994',
+            description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.'
         },
         {
-            movie: 'Inception',
+            title: 'Inception',
             director: 'Directed by Christopher Nolan',
             rating: 4,
-            genre: ['Sci-Fi', 'Thriller'],
-            year: '2010'
+            genres: ['Sci-Fi', 'Thriller'],
+            releaseDate: '2010',
+            description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.'
         },
         {
-            movie: 'The Godfather',
+            title: 'The Godfather',
             director: 'Directed by Francis Ford Coppola',
             rating: 4,
-            genre: ['Crime', 'Drama'],
-            year: '1972'
+            genres: ['Crime', 'Drama'],
+            releaseDate: '1972',
+            description: 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.'
         }
     ];
 
-    res.render('movie-list', { 
-        title: 'Movie List', 
-        movies 
+    res.render('movie-list', {
+        title: 'Movie List',
+        movies
     });
-}; 
+};
+
 
 /* GET 'Register' page */
 const RegisterInfo = function(req, res) {
@@ -105,5 +117,6 @@ const _renderHomepage = function(req, res, responseBody) {
 module.exports = {
     homelist,
     movieInfo,
-    RegisterInfo
+    RegisterInfo,
+    dataPage
 };

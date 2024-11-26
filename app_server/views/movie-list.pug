@@ -1,34 +1,34 @@
-.block.content
-  .row.banner
-    .col-12
-      h1 Movie Finder
-      small &nbsp; Find your next favorite movie!
+extends layout
 
-  .row
-    .col-12.col-md-8
-      if movies && movies.length
-        each movie in movies
-          .card.mb-4
-            .card-block.p-3
+block content
+  if movies
+    .row
+      .col-12
+        h1 Movie Finder
+        p Find your next favorite movie!
+
+    .row.flex-row.flex-nowrap.overflow-auto
+      each movie in movies
+        .col-md-4
+          .card.m-2
+            .card-body
               h4
-                a(href="/movie")= movie.movie
+                a(href=`/movies/${movie._id}`)= movie.title
               p.director= movie.director
-              .rating.mb-2
-                - for (let i = 0; i < 5; i++)
-                  if i < movie.rating
-                    i.fa.fa-star
-                  else
-                    i.fa.fa-star-o
-              span.badge.badge-pill.badge-default.float-right= movie.year
-              .genres.mb-2
-                if movie.genre && movie.genre.length
-                  each genre in movie.genre
-                    span.badge.badge-warning.mr-1= genre
-                else
-                  span No genres available
-              p.description= movie.description
-      else
-        p No movies available to display.
+              p Release Date: #{movie.releaseDate}
+              p Genres: #{movie.genres.join(', ')}
+              p.rating
+                | Rating: 
+                span.ml-2
+                  each star in [...Array(movie.rating)]
+                    i.fa.fa-star.text-warning
+                  each empty in [...Array(5 - movie.rating)]
+                    i.fa.fa-star-o.text-muted
+              p.description
+                | Description: #{movie.description && movie.description.length > 100 ? movie.description.slice(0, 100) + '...' : movie.description}
 
-    .col-12.col-md-4
-      p.lead Looking for your next movie to watch? MovieRev helps you discover films that you might enjoy. Perhaps with a thrilling plot, dramatic twists, or simply a good laugh? Let Movie Finder assist you in finding the film you're looking for.
+  else
+    .row
+      .col-12
+        h1 No Movies Found
+        p Sorry, no movies are currently available to display.
