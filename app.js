@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', locationController.homelist); 
 app.get('/register', locationController.RegisterInfo);
 app.get('/movies', locationController.movieInfo); // Movie List
-//app.get('/movies/:movieid', locationController.MovieReadOne); // Movie List
+ // Movie List
  // Add Review page
 
 // catch 404 and forward to error handler

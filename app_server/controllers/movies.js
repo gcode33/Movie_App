@@ -21,9 +21,9 @@ const homelist = function(req, res) {
         method: 'GET', 
         json: {}, 
         qs: {
-            movie: 'Inception', // Sample query params; customize as needed
+            title: 'Inception', // Sample query params; customize as needed
             rating: 4,
-            year: '2010'
+            director: 'Directed by Christopher Nolan'
         }
     }; 
     
