@@ -22,6 +22,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'pug');
 app.use('/api', apiRoutes);
+const webRoutes = require('./app_server/routes/index'); // Correct path to your server-side routes
+app.use('/', webRoutes);
 
 
 
