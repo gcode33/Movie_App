@@ -16,7 +16,7 @@ block content
                 a(href=`/movies/${movie._id}`)= movie.title
               p.director= movie.director
               p Release Date: #{movie.releaseDate}
-              p Genres: #{movie.genres.join(', ')}
+              p Genres: #{movie.genres}
               p.rating
                 | Rating: 
                 span.ml-2

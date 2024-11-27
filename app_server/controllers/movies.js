@@ -1,7 +1,6 @@
 /* GET 'home' page */
 /* GET 'home' page */
-const mongoose = require('mongoose');
-const Movies = mongoose.model('Movies');
+
 const request = require('request');
 const apiOptions = { 
     server: 'http://localhost:3000' 
@@ -23,30 +22,25 @@ const homelist = function(req, res) {
 };
 /* GET 'home' page (Login Page) */
 const dataPage = function(req, res) {
-    const path = '/api/movies'; 
-    const requestOptions = { 
-        url: apiOptions.server + path, 
-        method: 'GET', 
-        json: {}, 
-        qs: {
-            title: 'Inception', // Sample query params; customize as needed
-            rating: 4,
-            director: 'Directed by Christopher Nolan'
-        }
-    }; 
-    
+    console.log('hello'); // Optional, log message before request
+  
+    const path = '/api/movie';
+    const requestOptions = {
+      url: apiOptions.server + path,
+      method: 'GET',
+      json: {}
+    };
+  
     request(requestOptions, (err, response, body) => {
-        if (err || response.statusCode !== 200) {
-            res.status(response ? response.statusCode : 500).render('error', {
-                title: 'Error',
-                message: 'Something went wrong while fetching the data.'
-            });
-        } else {
-            _renderHomepage(req, res, body);
-        }
+      if (err || response.statusCode !== 200) {
+        // Handle error (e.g., log the error message, render an error page)
+        console.error('Error fetching data:', err);
+        // ... Handle error further
+      } else {
+        _renderHomepage(req, res, body);
+      }
     });
-    
-};
+  };
 
 /* GET 'Movie Info' page */
 const movieInfo = function (req, res) {
