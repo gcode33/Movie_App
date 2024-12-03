@@ -49,7 +49,7 @@ const movieInfo = function(req, res) {
 
 
 // Controller to fetch a specific movie by ID
-const MovieReadOne = async function(req, res) {
+const MovieReadOne = function(req, res) {
     Movies
 	.findById(req.params.movieid) 
 	.then((Movies,err) => { 
@@ -61,6 +61,16 @@ const MovieReadOne = async function(req, res) {
 			.json(Movies); 
 	});
 };
+// Function to fetch all movies
+const getAllMovies = async (req, res) => {
+    try {
+      const movies = await Movies.find(); // Fetch all documents from the movies collection
+      res.status(200).json(movies); // Return the movies as JSON
+    } catch (error) {
+      console.error('Error fetching movies:', error);
+      res.status(500).json({ message: 'An error occurred while fetching movies' });
+    }
+  };
 const RegisterInfo = function(req, res){
     res.render('register', { title: 'Sign up for our website' });
     };
@@ -69,7 +79,8 @@ const RegisterInfo = function(req, res){
     homelist,
     movieInfo,
     RegisterInfo,
-    MovieReadOne
+    MovieReadOne,
+    getAllMovies
     };
 
 

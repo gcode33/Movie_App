@@ -22,6 +22,7 @@ const homelist = function(req, res) {
 };
 /* GET 'home' page (Login Page) */
 const dataPage = function(req, res) {
+    console.log(req);
     console.log('hello'); // Optional, log message before request
   
     const path = '/api/movie';

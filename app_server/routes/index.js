@@ -8,7 +8,7 @@ const ctrlOthers = require('../controllers/others');
 router.get('/', ctrlLocations.homelist);
 router.get('/movies', ctrlLocations.movieInfo);
 router.get('/register', ctrlLocations.RegisterInfo);
-router.get('/api/movie', ctrlLocations.dataPage);
+router.get('/movie', ctrlLocations.dataPage);
 /* Other pages */
 module.exports = router;
 

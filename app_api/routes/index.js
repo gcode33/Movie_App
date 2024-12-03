@@ -4,6 +4,7 @@ const router = express.Router();
 const ctrlLocations = require('../../app_api/controllers/movies');  
 
 
+
 // Home page
 router.get('/', ctrlLocations.homelist);
 /*router
@@ -16,6 +17,10 @@ router
   .route('/movies/:movieid')
   .get(ctrlLocations.MovieReadOne); 
 // Use the callback function directly
+
+router
+  .route('/movie')
+  .get(ctrlLocations.getAllMovies);
 
 // Register
 /*router
