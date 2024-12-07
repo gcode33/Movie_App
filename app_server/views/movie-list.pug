@@ -1,34 +1,17 @@
 extends layout
 
 block content
-  if movies
-    .row
-      .col-12
-        h1 Movie Finder
-        p Find your next favorite movie!
+  .row.banner
+    .col-12
+      h1= pageHeader.title
+        small &nbsp;#{pageHeader.strapline}
+  .row
+    .col-12.col-md-8
+      .error= message
+      app-home-list 
+    .col-12.col-md-4
+      p.lead= sidebar
 
-    .row.flex-row.flex-nowrap.overflow-auto
-      each movie in movies
-        .col-md-4
-          .card.m-2
-            .card-body
-              h4
-                //a(href=`/movies/${movie._id}`)= movie.title
-              p.director= movie.director
-              p Release Date: #{movie.releaseDate}
-              p Genres: #{movie.genres}
-              p.rating
-                | Rating: 
-                span.ml-2
-                  each star in [...Array(movie.rating)]
-                    i.fa.fa-star.text-warning
-                  each empty in [...Array(5 - movie.rating)]
-                    i.fa.fa-star-o.text-muted
-              p.description
-                | Description: #{movie.description && movie.description.length > 100 ? movie.description.slice(0, 100) + '...' : movie.description}
-
-  else
-    .row
-      .col-12
-        h1 No Movies Found
-        p Sorry, no movies are currently available to display.
+block scripts
+  script(src='/browser/main-AVROVQR3.js')
+  script(src='/browser/polyfills-FFHMD2TL.js')

@@ -44,6 +44,7 @@ const dataPage = function(req, res) {
   };
 
 /* GET 'Movie Info' page */
+/* GET 'Movie Info' page */
 const movieInfo = function (req, res) {
     const movies = [
         {
@@ -72,11 +73,18 @@ const movieInfo = function (req, res) {
         }
     ];
 
+    // Pass pageHeader and sidebar along with the hardcoded movies
     res.render('movie-list', {
         title: 'Movie List',
-        movies
+        pageHeader: {
+            title: 'MovieRev',
+            strapline: 'Find your next favorite movie!'
+        },
+        sidebar: 'Explore our collection of top-rated movies.',
+        movies: movies // Pass the hardcoded movie list
     });
 };
+
 
 
 /* GET 'Register' page */
@@ -101,7 +109,7 @@ const _renderHomepage = function(req, res, responseBody) {
             strapline: 'Find your next favorite movie!'
         },
         sidebar: 'Discover top-rated movies from various genres and years.',
-        movies: responseBody, // Pass movies or an empty array if no data
+        movies: responseBody, // Pass API movies data here
     });
 };
 
